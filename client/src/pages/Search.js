@@ -4,6 +4,8 @@ import BookCard from "../components/book-card"
 import TextInput from "../components/search-components/search-form/text-input"
 import SearchButton from "../components/search-components/search-form/search-button"
 import ResultsContainer from "../components/results-container"
+import API from "../utils/API";
+
 
 const axios = require('axios');
 
@@ -48,6 +50,14 @@ class Search extends Component {
     }
   }
 
+  saveBook = (bookData) => {
+    // event.preventDefault();
+    API.saveBook(bookData)
+  }
+
+  getCardInfo = event => {
+    console.log(event.target)
+  }
   render() {
       return (
         <div>
@@ -67,7 +77,7 @@ class Search extends Component {
                   <BookCard 
                     key={book.id}
                     title={book.volumeInfo.title}
-                    author={book.volumeInfo.authors}
+                    author={book.volumeInfo.authors !== undefined ? book.volumeInfo.authors.join(", ") : null}
                     link={book.volumeInfo.previewLink}
                     image={(book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.smallThumbnail :
                     null}
@@ -79,6 +89,7 @@ class Search extends Component {
                           : book.volumeInfo.description)
                         : null
                     }
+                    method={this.saveBook}
                   />
                 ))}
               </ResultsContainer>

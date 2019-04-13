@@ -16,6 +16,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/books", (req, res) => {
+        console.log(req.body)
         db.Book.create(req.body).then(
             response => {
                 res.json({success: response})
@@ -28,6 +29,7 @@ module.exports = function(app) {
     })
 
     app.delete("/api/books/:id", (req,res) => {
+        console.log(req.params.id)
         db.Book.findByIdAndDelete(req.params.id).then(
             response => {
                 res.json ({success: response})
