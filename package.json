@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "google-books-search",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "google-books-search Demo",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -12,6 +12,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+  "homepage": "https://github.com/JordanMRabideau/Google-books-search.git",
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -21,6 +22,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.3",
+    "gh-pages": "^2.0.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.5.0"
   },
